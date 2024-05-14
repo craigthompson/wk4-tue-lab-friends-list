@@ -14,6 +14,13 @@ export default function App() {
     setName("");
   };
 
+  const friendInfo = friends.map((friend) => (
+    <div key={friend.name}>
+      <img src={friend.picture} alt="Picture of {friend.name}" width="50px" />
+      <span>{friend.name}</span>
+    </div>
+  ));
+
   return (
     <div>
       <label htmlFor="picture">Picture URL: </label>
@@ -34,6 +41,7 @@ export default function App() {
       <button type="button" onClick={addFriend}>
         Add Friend
       </button>
+      {friendInfo}
     </div>
   );
 }
