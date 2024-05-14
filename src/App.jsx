@@ -5,6 +5,15 @@ export default function App() {
   const [picture, setPicture] = useState("");
   const [name, setName] = useState("");
 
+  const addFriend = () => {
+    const friendObj = { picture: picture, name: name };
+    setFriends([...friends, friendObj]);
+
+    // Reset the input fields
+    setPicture("");
+    setName("");
+  };
+
   return (
     <div>
       <label htmlFor="picture">Picture URL: </label>
@@ -22,7 +31,9 @@ export default function App() {
         onChange={(e) => setName(e.target.value)}
       />
 
-      <button type="button">Add Friend</button>
+      <button type="button" onClick={addFriend}>
+        Add Friend
+      </button>
     </div>
   );
 }
